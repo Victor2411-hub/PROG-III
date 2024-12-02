@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prueba___BETA.mantenimiento;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Prueba___BETA.consulta
 {
     public partial class Con_usuario : Form
     {
+        public string ValorSeleccionado { get; private set; }
         public Con_usuario()
         {
             InitializeComponent();
@@ -19,12 +21,21 @@ namespace Prueba___BETA.consulta
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            userselec();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (dataGridView1.CurrentRow != null && dataGridView1.CurrentRow.Cells[0].Value != null)
+            {
+                ValorSeleccionado = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                this.DialogResult = DialogResult.OK;
+                this.Close(); 
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione una fila válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void Con_usuario_Load(object sender, EventArgs e)
@@ -50,17 +61,6 @@ namespace Prueba___BETA.consulta
             this.Close();
         }
 
-        private void txtbuscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 27)
-            {
-                this.Close();
-            }
-            else if (e.KeyChar == 13 || e.KeyChar == 116)
-            {
-                userselec();
-            }
-        }
 
         private void userselec()
         {
@@ -75,6 +75,28 @@ namespace Prueba___BETA.consulta
             {
 
             }
+        }
+
+        private void txtbuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+            else if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.F5)
+            {
+                userselec();
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -13,14 +13,17 @@ namespace Prueba___BETA.mantenimiento
 {
     public partial class Mant_usuarios : Form
     {
+        public string ValorSeleccionado { get; private set; } 
+
         public Mant_usuarios()
         {
             InitializeComponent();
         }
 
+
         private void Mantusuarios_Load(object sender, EventArgs e)
         {
-
+            cod.Focus();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -86,42 +89,7 @@ namespace Prueba___BETA.mantenimiento
 
         }
 
-        private void cod_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == 13)
-            {
-                Conexion conexion = new Conexion();
-
-                string sql = "SELECT * FROM usuarios WHERE cod_user = @codigo";
-                var parametros = new Dictionary<string, object>
-        {
-            { "@codigo", cod.Text }
-        };
-                DataRow resultado = conexion.EjecutarConsultaSimpleFila(sql, parametros);
-                conexion.Cierre();
-
-                if (resultado != null)
-                {
-                    user.Text = resultado["login_usuario"].ToString();
-                    pass.Text = resultado["pass_usuario"].ToString();
-                    nombre.Text = resultado["nombre_usuario"].ToString();
-                    apellidos.Text = resultado["apellidos_usuario"].ToString();
-                    email.Text = resultado["email_usuario"].ToString();
-                    tipo.SelectedItem = resultado["Nivel_Acceso"].ToString() == "0" ? "Administrador" : "Empleado";
-                }
-                else
-                {
-                    sql = "SELECT MAX(cod_user) FROM usuarios";
-                    DataRow maxCod = conexion.EjecutarConsulta(sql);
-                    conexion.Cierre();
-                    if (maxCod != null)
-                    {
-                        limpiar_Click(sender, e);
-                        cod.Text = (int.Parse(maxCod[0].ToString()) + 1).ToString();
-                    }
-                }
-            }
-        }
+       
 
         private void Mantusuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -139,13 +107,13 @@ namespace Prueba___BETA.mantenimiento
             string sql;
             var parametros = new Dictionary<string, object>
     {
-        { "@user", user.Text },
-        { "@pass", pass.Text },
-        { "@nombre", nombre.Text },
-        { "@apellidos", apellidos.Text },
-        { "@email", email.Text },
-        { "@tipo", tipo.SelectedItem.ToString() == "Administrador" ? 0 : 1 }
-    };
+                { "@user", user.Text },
+                { "@pass", pass.Text },
+                { "@nombre", nombre.Text },
+                { "@apellidos", apellidos.Text },
+                { "@email", email.Text },
+                { "@tipo", tipo.SelectedItem.ToString() == "Administrador" ? 0 : 1 }
+            };
 
             if (string.IsNullOrWhiteSpace(cod.Text))
             {
@@ -217,6 +185,65 @@ namespace Prueba___BETA.mantenimiento
             tipo.SelectedIndex = -1;
         }
 
+        private void cod_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                search(sender, e);
+            }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
 
+            if (e.KeyCode == Keys.F5)
+            {
+                consulta.Con_usuario consultaForm = new consulta.Con_usuario(); 
+
+                if (consultaForm.ShowDialog() == DialogResult.OK)
+                {
+                    if (!string.IsNullOrEmpty(consultaForm.ValorSeleccionado))
+                    {
+                        cod.Text = consultaForm.ValorSeleccionado; 
+                        search(sender, e);
+                    }
+                }
+            }
+        }
+
+        private void search(object sender, KeyEventArgs e)
+        {
+            Conexion conexion = new Conexion();
+
+            string sql = "SELECT * FROM usuarios WHERE cod_user = @codigo";
+            var parametros = new Dictionary<string, object>
+        {
+            { "@codigo", cod.Text }
+        };
+            DataRow resultado = conexion.EjecutarConsultaSimpleFila(sql, parametros);
+            conexion.Cierre();
+
+            if (resultado != null)
+            {
+                user.Text = resultado["login_usuario"].ToString();
+                pass.Text = resultado["pass_usuario"].ToString();
+                nombre.Text = resultado["nombre_usuario"].ToString();
+                apellidos.Text = resultado["apellidos_usuario"].ToString();
+                email.Text = resultado["email_usuario"].ToString();
+                tipo.SelectedItem = resultado["Nivel_Acceso"].ToString() == "0" ? "Administrador" : "Empleado";
+            }
+            else
+            {
+                sql = "SELECT MAX(cod_user) FROM usuarios";
+                DataRow maxCod = conexion.EjecutarConsulta(sql);
+                conexion.Cierre();
+                if (maxCod != null)
+                {
+                    limpiar_Click(sender, e);
+                    cod.Text = (int.Parse(maxCod[0].ToString()) + 1).ToString();
+                }
+            }
+        }
     }
+
 }
