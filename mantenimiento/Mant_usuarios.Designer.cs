@@ -1,7 +1,7 @@
 ﻿
 namespace Prueba___BETA.mantenimiento
 {
-    partial class Mantusuarios
+    partial class Mant_usuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,11 @@ namespace Prueba___BETA.mantenimiento
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.guardar = new System.Windows.Forms.Button();
             this.limpiar = new System.Windows.Forms.Button();
             this.cancel = new System.Windows.Forms.Button();
             this.tipo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.apellidos = new System.Windows.Forms.TextBox();
@@ -50,11 +48,13 @@ namespace Prueba___BETA.mantenimiento
             this.cod = new System.Windows.Forms.TextBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.guardar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,18 +88,6 @@ namespace Prueba___BETA.mantenimiento
             this.panel1.Size = new System.Drawing.Size(864, 507);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // guardar
-            // 
-            this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.guardar.ForeColor = System.Drawing.Color.Black;
-            this.guardar.Location = new System.Drawing.Point(649, 444);
-            this.guardar.Name = "guardar";
-            this.guardar.Size = new System.Drawing.Size(121, 42);
-            this.guardar.TabIndex = 19;
-            this.guardar.Text = "Guardar";
-            this.guardar.UseVisualStyleBackColor = true;
-            this.guardar.Click += new System.EventHandler(this.guardar_Click);
             // 
             // limpiar
             // 
@@ -160,16 +148,6 @@ namespace Prueba___BETA.mantenimiento
             this.button1.TabIndex = 14;
             this.button1.Text = "Actualizar Foto";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBox2.Location = new System.Drawing.Point(601, 91);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(169, 194);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
             // 
             // email
             // 
@@ -316,17 +294,6 @@ namespace Prueba___BETA.mantenimiento
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Prueba___BETA.Properties.Resources.Blue_Modern_Financial_Services_Logo_1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -339,6 +306,39 @@ namespace Prueba___BETA.mantenimiento
             this.label1.TabIndex = 0;
             this.label1.Text = "Mantenimiento de Usuarios";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // guardar
+            // 
+            this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.guardar.ForeColor = System.Drawing.Color.Black;
+            this.guardar.Location = new System.Drawing.Point(649, 444);
+            this.guardar.Name = "guardar";
+            this.guardar.Size = new System.Drawing.Size(121, 42);
+            this.guardar.TabIndex = 19;
+            this.guardar.Text = "Guardar";
+            this.guardar.UseVisualStyleBackColor = true;
+            this.guardar.Click += new System.EventHandler(this.guardar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Window;
+            this.pictureBox2.Location = new System.Drawing.Point(601, 91);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(169, 194);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Prueba___BETA.Properties.Resources.Blue_Modern_Financial_Services_Logo_1;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // Mantusuarios
             // 
@@ -353,9 +353,9 @@ namespace Prueba___BETA.mantenimiento
             this.Load += new System.EventHandler(this.Mantusuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

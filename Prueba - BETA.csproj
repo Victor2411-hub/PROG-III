@@ -75,17 +75,35 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="config\dbmanager.cs" />
+    <Compile Include="consulta\Con_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="consulta\Con_usuario.Designer.cs">
+      <DependentUpon>Con_usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="mantenimiento\Mantusuarios.cs">
+    <Compile Include="mantenimiento\Mant_catalogo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mantenimiento\Mantusuarios.Designer.cs">
-      <DependentUpon>Mantusuarios.cs</DependentUpon>
+    <Compile Include="mantenimiento\Mant_catalogo.Designer.cs">
+      <DependentUpon>Mant_catalogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimiento\Mant_tipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento\Mant_tipo.Designer.cs">
+      <DependentUpon>Mant_tipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mantenimiento\Mant_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mantenimiento\Mant_usuarios.Designer.cs">
+      <DependentUpon>Mant_usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="menu.cs">
       <SubType>Form</SubType>
@@ -95,11 +113,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="consulta\Con_usuario.resx">
+      <DependentUpon>Con_usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="mantenimiento\Mantusuarios.resx">
-      <DependentUpon>Mantusuarios.cs</DependentUpon>
+    <EmbeddedResource Include="mantenimiento\Mant_usuarios.resx">
+      <DependentUpon>Mant_usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menu.resx">
       <DependentUpon>menu.cs</DependentUpon>
@@ -156,10 +177,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blue Modern Financial Services Logo .ico" />
+    <None Include="Resources\R %282%29.png" />
     <None Include="Resources\Blue Modern Financial Services Logo .ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="consulta\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

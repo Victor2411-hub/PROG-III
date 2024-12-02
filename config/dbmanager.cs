@@ -75,6 +75,23 @@ public class Conexion
         return System.Security.SecurityElement.Escape(str);
     }
 
+    public DataTable Tabla(string sql)
+    {
+        try
+        {
+            SqlCommand cmd = new SqlCommand(sql, conexion);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error al ejecutar la consulta: " + ex.Message);
+            return null;
+        }
+    }
+
     ~Conexion()
     {
         // Cierra la conexión cuando el objeto es destruido

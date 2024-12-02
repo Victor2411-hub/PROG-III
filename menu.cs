@@ -36,7 +36,7 @@ namespace Prueba___BETA
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mantenimiento.Mantusuarios form = new mantenimiento.Mantusuarios();
+            mantenimiento.Mant_usuarios form = new mantenimiento.Mant_usuarios();
             form.TopLevel = false;
             panel1.Controls.Add(form);
             form.Show();

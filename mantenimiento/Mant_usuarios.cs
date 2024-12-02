@@ -11,9 +11,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Prueba___BETA.mantenimiento
 {
-    public partial class Mantusuarios : Form
+    public partial class Mant_usuarios : Form
     {
-        public Mantusuarios()
+        public Mant_usuarios()
         {
             InitializeComponent();
         }
@@ -40,6 +40,8 @@ namespace Prueba___BETA.mantenimiento
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            consulta.Con_usuario form = new consulta.Con_usuario();
+            form.ShowDialog();
 
         }
 
