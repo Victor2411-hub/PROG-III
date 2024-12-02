@@ -73,8 +73,32 @@ namespace Prueba___BETA.consulta
             }
             else
             {
-
+                Conexion conexion = new Conexion();
+                string palabraClave = txtbuscar.Text.Trim(); // Limpia espacios al inicio y final
+                string sql = $@"
+        SELECT 
+            cod_user AS Código, 
+            nombre_usuario AS Nombres, 
+            apellidos_usuario AS Apellidos, 
+            login_usuario AS Usuario, 
+            email_usuario AS Correo, 
+            CASE 
+                WHEN nivel_Acceso = 0 THEN 'Administrador' 
+                WHEN nivel_Acceso = 1 THEN 'Empleado' 
+                ELSE 'Desconocido' 
+            END AS Tipo 
+        FROM usuarios
+        WHERE 
+            cod_user LIKE '%{palabraClave}%' OR
+            nombre_usuario LIKE '%{palabraClave}%' OR
+            apellidos_usuario LIKE '%{palabraClave}%' OR
+            login_usuario LIKE '%{palabraClave}%' OR
+            email_usuario LIKE '%{palabraClave}%';
+    ";
+                dataGridView1.DataSource = conexion.Tabla(sql);
+                dataGridView1.Refresh();
             }
+
         }
 
         private void txtbuscar_TextChanged(object sender, EventArgs e)
