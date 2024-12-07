@@ -16,5 +16,28 @@ namespace Prueba___BETA.mantenimiento
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            consulta.Con_catalogo form = new consulta.Con_catalogo();
+            form.ShowDialog();
+
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            consulta.Con_catalogo form = new consulta.Con_catalogo();
+            form.ShowDialog();
+        }
     }
 }

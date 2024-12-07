@@ -83,5 +83,16 @@ namespace Prueba___BETA
         {
 
         }
+
+        private void catálogoDeCuentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mantenimiento.Mant_catalogo form = new mantenimiento.Mant_catalogo();
+            form.TopLevel = false;
+            panel1.Controls.Add(form);
+            form.Show();
+            form.BringToFront();
+            form.Left = (panel1.Width - form.Width) / 2;
+            form.Top = (panel1.Height - form.Height) / 2;
+        }
     }
 }

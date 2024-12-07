@@ -16,8 +16,8 @@ namespace Prueba___BETA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new INGRESO());
-            Application.Run(new mantenimiento.Mant_usuarios());
+            Application.Run(new INGRESO());
+            //Application.Run(new mantenimiento.Mant_usuarios());
         }
     }
 }

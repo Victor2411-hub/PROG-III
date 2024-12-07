@@ -92,13 +92,5 @@ public class Conexion
         }
     }
 
-    ~Conexion()
-    {
-        // Cierra la conexión cuando el objeto es destruido
-        if (conexion != null && conexion.State == ConnectionState.Open)
-        {
-            conexion.Close();
-            Console.WriteLine("Conexión cerrada.");
-        }
-    }
+    
 }

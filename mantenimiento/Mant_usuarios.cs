@@ -103,45 +103,46 @@ namespace Prueba___BETA.mantenimiento
                 return;
 
             Conexion conexion = new Conexion();
-
             string sql;
             var parametros = new Dictionary<string, object>
     {
-                { "@user", user.Text },
-                { "@pass", pass.Text },
-                { "@nombre", nombre.Text },
-                { "@apellidos", apellidos.Text },
-                { "@email", email.Text },
-                { "@tipo", tipo.SelectedItem.ToString() == "Administrador" ? 0 : 1 }
-            };
-
-            if (string.IsNullOrWhiteSpace(cod.Text))
-            {
-                sql = "INSERT INTO usuarios (login_usuario, pass_usuario, nombre_usuario, apellidos_usuario, email_usuario, Nivel_Acceso) " +
-                      "VALUES (@user, @pass, @nombre, @apellidos, @email, @tipo)";
-            }
-            else 
-            {
-                sql = "UPDATE usuarios SET login_usuario = @user, pass_usuario = @pass, nombre_usuario = @nombre, " +
-                      "apellidos_usuario = @apellidos, email_usuario = @email, Nivel_Acceso = @tipo WHERE cod_user = @codigo";
-                parametros.Add("@codigo", cod.Text); 
-            }
+        { "@user", user.Text },
+        { "@pass", pass.Text }, 
+        { "@nombre", nombre.Text },
+        { "@apellidos", apellidos.Text },
+        { "@email", email.Text },
+        { "@tipo", tipo.SelectedItem.ToString() == "Administrador" ? 0 : 1 }
+    };
 
             try
             {
-                conexion.EjecutarConsultaSimpleFila(sql, parametros);
-
-                if (string.IsNullOrWhiteSpace(cod.Text))
+                if (!string.IsNullOrWhiteSpace(cod.Text))
                 {
-                    MessageBox.Show("Usuario guardado exitosamente.");
-                }
-                else
-                {
-                    MessageBox.Show("Usuario actualizado exitosamente.");
-                }
+                    string consultaExistencia = "SELECT * FROM usuarios WHERE cod_user = @codigo";
+                    parametros.Add("@codigo", cod.Text);
 
-                limpiar_Click(sender, e);
+                    DataRow existe = conexion.EjecutarConsultaSimpleFila(consultaExistencia, parametros);
+
+                    if (existe != null)
+                    {
+                        sql = "UPDATE usuarios SET login_usuario = @user, pass_usuario = @pass, nombre_usuario = @nombre, " +
+                              "apellidos_usuario = @apellidos, email_usuario = @email, Nivel_Acceso = @tipo WHERE cod_user = @codigo";
+                    }
+                    else
+                    {
+                        sql = "INSERT INTO usuarios (login_usuario, pass_usuario, nombre_usuario, apellidos_usuario, email_usuario, Nivel_Acceso) " +
+                              "VALUES (@user, @pass, @nombre, @apellidos, @email, @tipo)";
+                    }
+
+
+
+                    conexion.EjecutarConsultaSimpleFila(sql, parametros);
+
+
+                    limpiar_Click(sender, e);
+                }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show("Error al procesar la operación: " + ex.Message);
@@ -189,7 +190,23 @@ namespace Prueba___BETA.mantenimiento
         {
             if (e.KeyCode == Keys.Enter)
             {
-                search(sender, e);
+                if (!(string.IsNullOrWhiteSpace(cod.Text)))
+                {
+
+                    search(sender, e);
+                }
+                else
+                {
+                    Conexion conexion = new Conexion();
+                    string sql = "SELECT MAX(cod_user) FROM usuarios";
+                    DataRow maxCod = conexion.EjecutarConsulta(sql);
+                    conexion.Cierre();
+                    if (maxCod != null)
+                    {
+                        limpiar_Click(sender, e);
+                        cod.Text = (int.Parse(maxCod[0].ToString()) + 1).ToString();
+                    }
+                }
             }
             if (e.KeyCode == Keys.Escape)
             {
@@ -232,17 +249,7 @@ namespace Prueba___BETA.mantenimiento
                 email.Text = resultado["email_usuario"].ToString();
                 tipo.SelectedItem = resultado["Nivel_Acceso"].ToString() == "0" ? "Administrador" : "Empleado";
             }
-            else
-            {
-                sql = "SELECT MAX(cod_user) FROM usuarios";
-                DataRow maxCod = conexion.EjecutarConsulta(sql);
-                conexion.Cierre();
-                if (maxCod != null)
-                {
-                    limpiar_Click(sender, e);
-                    cod.Text = (int.Parse(maxCod[0].ToString()) + 1).ToString();
-                }
-            }
+            
         }
     }
 

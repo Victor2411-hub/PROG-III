@@ -1,6 +1,6 @@
 ﻿namespace Prueba___BETA.consulta
 {
-    partial class Con_usuario
+    partial class Con_catalogo
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 450);
-            this.panel1.TabIndex = 0;
+            this.panel1.TabIndex = 1;
             // 
             // cancel
             // 
@@ -61,7 +61,6 @@
             this.cancel.TabIndex = 4;
             this.cancel.Text = "Cancelar";
             this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
             // dataGridView1
             // 
@@ -80,9 +79,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(734, 284);
             this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // buscar
             // 
@@ -94,7 +90,6 @@
             this.buscar.TabIndex = 2;
             this.buscar.Text = "Buscar";
             this.buscar.UseVisualStyleBackColor = true;
-            this.buscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtbuscar
             // 
@@ -105,8 +100,6 @@
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(655, 36);
             this.txtbuscar.TabIndex = 1;
-            this.txtbuscar.TextChanged += new System.EventHandler(this.txtbuscar_TextChanged);
-            this.txtbuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbuscar_KeyDown);
             // 
             // label1
             // 
@@ -121,16 +114,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar:";
             // 
-            // Con_usuario
+            // Con_catalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
-            this.Name = "Con_usuario";
-            this.Text = "Con_usuario";
-            this.Load += new System.EventHandler(this.Con_usuario_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Con_usuario_KeyPress);
+            this.Name = "Con_catalogo";
+            this.Text = "Con_catalogo";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -141,10 +132,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buscar;
         private System.Windows.Forms.TextBox txtbuscar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button cancel;
-        private System.Windows.Forms.Button buscar;
     }
 }
