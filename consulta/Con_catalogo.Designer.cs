@@ -79,6 +79,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(734, 284);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // buscar
             // 
@@ -100,6 +101,7 @@
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(655, 36);
             this.txtbuscar.TabIndex = 1;
+            this.txtbuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtbuscar_KeyDown);
             // 
             // label1
             // 
@@ -122,6 +124,8 @@
             this.Controls.Add(this.panel1);
             this.Name = "Con_catalogo";
             this.Text = "Con_catalogo";
+            this.Load += new System.EventHandler(this.Con_catalogo_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Con_catalogo_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

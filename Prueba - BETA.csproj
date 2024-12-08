@@ -293,6 +293,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="transacciones\diario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transacciones\diario.Designer.cs">
+      <DependentUpon>diario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="consulta\Con_catalogo.resx">
       <DependentUpon>Con_catalogo.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +328,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="transacciones\diario.resx">
+      <DependentUpon>diario.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -365,6 +374,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blue Modern Financial Services Logo .ico" />
+    <None Include="Resources\left-28998_1280.png" />
+    <None Include="Resources\Untitled design %283%29.png" />
+    <None Include="Resources\Untitled design %282%29.png" />
+    <None Include="Resources\Untitled design %281%29.png" />
+    <None Include="Resources\Untitled design.png" />
     <None Include="Resources\R %282%29.png" />
     <None Include="Resources\Blue Modern Financial Services Logo .ico" />
   </ItemGroup>

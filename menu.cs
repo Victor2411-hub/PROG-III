@@ -94,5 +94,16 @@ namespace Prueba___BETA
             form.Left = (panel1.Width - form.Width) / 2;
             form.Top = (panel1.Height - form.Height) / 2;
         }
+
+        private void catálogoDeCuentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            consulta.Con_catalogo form = new consulta.Con_catalogo();
+            form.TopLevel = false;
+            panel1.Controls.Add(form);
+            form.Show();
+            form.BringToFront();
+            form.Left = (panel1.Width - form.Width) / 2;
+            form.Top = (panel1.Height - form.Height) / 2;
+        }
     }
 }

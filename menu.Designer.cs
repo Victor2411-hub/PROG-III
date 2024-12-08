@@ -258,6 +258,7 @@ namespace Prueba___BETA
             this.catálogoDeCuentasToolStripMenuItem.Name = "catálogoDeCuentasToolStripMenuItem";
             this.catálogoDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(305, 28);
             this.catálogoDeCuentasToolStripMenuItem.Text = "Catálogo de Cuentas";
+            this.catálogoDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.catálogoDeCuentasToolStripMenuItem_Click);
             // 
             // transaccionesToolStripMenuItem1
             // 
