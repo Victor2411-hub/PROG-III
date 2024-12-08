@@ -21,5 +21,24 @@ namespace Prueba___BETA.transacciones
         {
 
         }
+
+        private void diario_Load(object sender, EventArgs e)
+        {
+            cta.Focus();
+        }
+
+        private void cta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+               search();
+               button1.Focus();
+            }
+        }
+
+        private void search()
+        {
+
+        }
     }
 }

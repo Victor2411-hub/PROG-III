@@ -173,6 +173,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             // email
             // 
+            this.email.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.email.Location = new System.Drawing.Point(153, 365);
             this.email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -193,6 +194,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             // apellidos
             // 
+            this.apellidos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.apellidos.Location = new System.Drawing.Point(153, 306);
             this.apellidos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -215,6 +217,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             // nombre
             // 
+            this.nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.nombre.Location = new System.Drawing.Point(153, 254);
             this.nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -237,6 +240,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             // pass
             // 
+            this.pass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.pass.Location = new System.Drawing.Point(153, 201);
             this.pass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -260,6 +264,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             // user
             // 
+            this.user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.user.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.user.Location = new System.Drawing.Point(153, 148);
             this.user.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -281,6 +286,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             // cod
             // 
+            this.cod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cod.Location = new System.Drawing.Point(153, 91);
             this.cod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

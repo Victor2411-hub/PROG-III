@@ -209,8 +209,9 @@ namespace Prueba___BETA
             // 
             this.transaccionesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
-            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(204, 28);
+            this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.transaccionesToolStripMenuItem.Text = "Transacciones";
+            this.transaccionesToolStripMenuItem.Click += new System.EventHandler(this.transaccionesToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 

@@ -29,27 +29,61 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Nro_Cta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion_Cta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor_Credito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor_Debito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Comentarios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cta = new System.Windows.Forms.TextBox();
+            this.cta_nombre = new System.Windows.Forms.TextBox();
+            this.guardar = new System.Windows.Forms.Button();
+            this.limpiar = new System.Windows.Forms.Button();
+            this.cancel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.guardar);
+            this.panel1.Controls.Add(this.limpiar);
+            this.panel1.Controls.Add(this.cancel);
+            this.panel1.Controls.Add(this.cta_nombre);
+            this.panel1.Controls.Add(this.cta);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 523);
+            this.panel1.Size = new System.Drawing.Size(789, 523);
             this.panel1.TabIndex = 1;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeight = 29;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nro_Cta,
+            this.descripcion_Cta,
+            this.Valor_Credito,
+            this.Valor_Debito,
+            this.Comentarios});
+            this.dataGridView1.Location = new System.Drawing.Point(23, 139);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(743, 308);
+            this.dataGridView1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -64,6 +98,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Prueba___BETA.Properties.Resources.Blue_Modern_Financial_Services_Logo_1;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(61, 57);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -77,39 +122,117 @@
             this.label1.Text = "Registro de Libro Diario";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dataGridView1
+            // Nro_Cta
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 102);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 308);
-            this.dataGridView1.TabIndex = 1;
+            this.Nro_Cta.HeaderText = "N° de Cuenta";
+            this.Nro_Cta.MinimumWidth = 6;
+            this.Nro_Cta.Name = "Nro_Cta";
             // 
-            // pictureBox1
+            // descripcion_Cta
             // 
-            this.pictureBox1.Image = global::Prueba___BETA.Properties.Resources.Blue_Modern_Financial_Services_Logo_1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.descripcion_Cta.HeaderText = "Descripción de Cuenta";
+            this.descripcion_Cta.MinimumWidth = 6;
+            this.descripcion_Cta.Name = "descripcion_Cta";
+            // 
+            // Valor_Credito
+            // 
+            this.Valor_Credito.HeaderText = "Crédito";
+            this.Valor_Credito.MinimumWidth = 6;
+            this.Valor_Credito.Name = "Valor_Credito";
+            // 
+            // Valor_Debito
+            // 
+            this.Valor_Debito.HeaderText = "Débito";
+            this.Valor_Debito.MinimumWidth = 6;
+            this.Valor_Debito.Name = "Valor_Debito";
+            // 
+            // Comentarios
+            // 
+            this.Comentarios.HeaderText = "Comentarios";
+            this.Comentarios.MinimumWidth = 6;
+            this.Comentarios.Name = "Comentarios";
+            // 
+            // cta
+            // 
+            this.cta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cta.ForeColor = System.Drawing.Color.Black;
+            this.cta.Location = new System.Drawing.Point(23, 88);
+            this.cta.Name = "cta";
+            this.cta.Size = new System.Drawing.Size(156, 34);
+            this.cta.TabIndex = 2;
+            this.cta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cta_KeyDown);
+            // 
+            // cta_nombre
+            // 
+            this.cta_nombre.BackColor = System.Drawing.Color.LemonChiffon;
+            this.cta_nombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cta_nombre.Enabled = false;
+            this.cta_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.cta_nombre.ForeColor = System.Drawing.Color.Black;
+            this.cta_nombre.Location = new System.Drawing.Point(185, 88);
+            this.cta_nombre.Name = "cta_nombre";
+            this.cta_nombre.Size = new System.Drawing.Size(452, 34);
+            this.cta_nombre.TabIndex = 3;
+            // 
+            // guardar
+            // 
+            this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.guardar.ForeColor = System.Drawing.Color.Black;
+            this.guardar.Location = new System.Drawing.Point(645, 469);
+            this.guardar.Name = "guardar";
+            this.guardar.Size = new System.Drawing.Size(121, 42);
+            this.guardar.TabIndex = 22;
+            this.guardar.Text = "Guardar";
+            this.guardar.UseVisualStyleBackColor = true;
+            // 
+            // limpiar
+            // 
+            this.limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.limpiar.ForeColor = System.Drawing.Color.Black;
+            this.limpiar.Location = new System.Drawing.Point(332, 469);
+            this.limpiar.Name = "limpiar";
+            this.limpiar.Size = new System.Drawing.Size(121, 42);
+            this.limpiar.TabIndex = 21;
+            this.limpiar.Text = "Limpiar";
+            this.limpiar.UseVisualStyleBackColor = true;
+            // 
+            // cancel
+            // 
+            this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cancel.ForeColor = System.Drawing.Color.Black;
+            this.cancel.Location = new System.Drawing.Point(21, 469);
+            this.cancel.Name = "cancel";
+            this.cancel.Size = new System.Drawing.Size(121, 42);
+            this.cancel.TabIndex = 20;
+            this.cancel.Text = "Cancelar";
+            this.cancel.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Location = new System.Drawing.Point(645, 88);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 33);
+            this.button1.TabIndex = 23;
+            this.button1.Text = "Añadir";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // diario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 523);
+            this.ClientSize = new System.Drawing.Size(789, 523);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "diario";
             this.Text = "diario";
+            this.Load += new System.EventHandler(this.diario_Load);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -122,5 +245,16 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nro_Cta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion_Cta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Credito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Valor_Debito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Comentarios;
+        private System.Windows.Forms.TextBox cta_nombre;
+        private System.Windows.Forms.TextBox cta;
+        private System.Windows.Forms.Button guardar;
+        private System.Windows.Forms.Button limpiar;
+        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button button1;
     }
 }

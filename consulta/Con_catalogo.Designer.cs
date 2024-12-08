@@ -55,12 +55,14 @@
             // 
             this.cancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cancel.ForeColor = System.Drawing.Color.Black;
             this.cancel.Location = new System.Drawing.Point(245, 398);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(107, 40);
             this.cancel.TabIndex = 4;
             this.cancel.Text = "Cancelar";
             this.cancel.UseVisualStyleBackColor = true;
+            this.cancel.Click += new System.EventHandler(this.cancel_Click_1);
             // 
             // dataGridView1
             // 
@@ -68,7 +70,7 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -85,18 +87,21 @@
             // 
             this.buscar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buscar.ForeColor = System.Drawing.Color.Black;
             this.buscar.Location = new System.Drawing.Point(417, 398);
             this.buscar.Name = "buscar";
             this.buscar.Size = new System.Drawing.Size(107, 40);
             this.buscar.TabIndex = 2;
             this.buscar.Text = "Buscar";
             this.buscar.UseVisualStyleBackColor = true;
+            this.buscar.Click += new System.EventHandler(this.buscar_Click);
             // 
             // txtbuscar
             // 
             this.txtbuscar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.txtbuscar.ForeColor = System.Drawing.Color.Black;
             this.txtbuscar.Location = new System.Drawing.Point(105, 28);
             this.txtbuscar.Name = "txtbuscar";
             this.txtbuscar.Size = new System.Drawing.Size(655, 36);
@@ -122,6 +127,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "Con_catalogo";
             this.Text = "Con_catalogo";
             this.Load += new System.EventHandler(this.Con_catalogo_Load);

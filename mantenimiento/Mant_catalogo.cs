@@ -55,6 +55,7 @@ namespace Prueba___BETA.mantenimiento
 
         private void limpiar_Click(object sender, EventArgs e)
         {
+            cod.Clear();
             codcuenta.Clear();
             desc.Clear();
             if (general.Checked)
@@ -84,6 +85,15 @@ namespace Prueba___BETA.mantenimiento
                 {
                     MessageBox.Show("Por favor, ingrese un número de cuenta válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            } 
+            
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+            if (e.KeyCode == Keys.Down)
+            {
+                desc.Focus();
             }
         }
 
@@ -245,6 +255,10 @@ namespace Prueba___BETA.mantenimiento
                     }
                 }
             }
+            if(e.KeyCode  == Keys.Down)
+            {
+                codcuenta.Focus();
+            }
         }
 
         private void desc_TextChanged(object sender, EventArgs e)
@@ -334,7 +348,6 @@ namespace Prueba___BETA.mantenimiento
             { "@Nro_Cta", codcuenta.Text }
         };
 
-                // Usamos EjecutarConsultaSimpleFila para obtener una fila con el resultado de la consulta
                 DataRow resultado = conexion.EjecutarConsultaSimpleFila(sql, parametros);
 
                 int existe = 0; // Valor por defecto
@@ -367,16 +380,14 @@ namespace Prueba___BETA.mantenimiento
                 Grupo_Cta = @Grupo_Cta,
                 Fecha_Creacion_Cta = @Fecha_Creacion_Cta
             WHERE Nro_Cta = @Nro_Cta";
-                    conexion.EjecutarConsultaSimpleFila(sql, parametros); // Ejecuta la actualización
-                    MessageBox.Show("Cuenta actualizada correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conexion.EjecutarConsultaSimpleFila(sql, parametros);
                 }
                 else
                 {
                     sql = @"
             INSERT INTO catalogoC (Nro_Cta, Descripcion_Cta, Tipo_Cta, Nivel_Cta, Cta_Padre, Grupo_Cta, Fecha_Creacion_Cta)
             VALUES (@Nro_Cta, @Descripcion_Cta, @Tipo_Cta, @Nivel_Cta, @Cta_Padre, @Grupo_Cta, @Fecha_Creacion_Cta)";
-                    conexion.EjecutarConsultaSimpleFila(sql, parametros); // Ejecuta la inserción
-                    MessageBox.Show("Cuenta guardada correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conexion.EjecutarConsultaSimpleFila(sql, parametros);
                 }
 
                 conexion.Cierre();
@@ -394,7 +405,7 @@ namespace Prueba___BETA.mantenimiento
             if (string.IsNullOrWhiteSpace(nroCta))
                 return "";
 
-            // Tomar el primer dígito antes del primer punto
+            
             string[] partes = nroCta.Split('.');
             return partes.Length > 0 ? partes[0] : "";
         }
@@ -403,12 +414,32 @@ namespace Prueba___BETA.mantenimiento
             if (string.IsNullOrWhiteSpace(nroCta))
                 return 0;
 
-            return nroCta.Count(c => c == '.') + 1; // Nivel es cantidad de puntos + 1
+            return nroCta.Count(c => c == '.') + 1;
         }
 
         private void Mant_catalogo_Load(object sender, EventArgs e)
         {
+            cod.Focus();
+        }
 
+        private void codcuenta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void desc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (!string.IsNullOrWhiteSpace(desc.Text))
+                {
+                    general.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese una descripción válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

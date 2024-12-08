@@ -92,6 +92,7 @@
             // 
             // cod
             // 
+            this.cod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cod.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cod.Location = new System.Drawing.Point(153, 92);
             this.cod.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -176,6 +177,9 @@
             // 
             // nombrec
             // 
+            this.nombrec.BackColor = System.Drawing.Color.LemonChiffon;
+            this.nombrec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nombrec.Enabled = false;
             this.nombrec.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.nombrec.Location = new System.Drawing.Point(153, 423);
             this.nombrec.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -187,6 +191,9 @@
             // 
             // cuentac
             // 
+            this.cuentac.BackColor = System.Drawing.Color.LemonChiffon;
+            this.cuentac.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cuentac.Enabled = false;
             this.cuentac.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cuentac.Location = new System.Drawing.Point(153, 366);
             this.cuentac.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -211,6 +218,9 @@
             // 
             // Grupo
             // 
+            this.Grupo.BackColor = System.Drawing.Color.LemonChiffon;
+            this.Grupo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Grupo.Enabled = false;
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Grupo.Location = new System.Drawing.Point(307, 306);
             this.Grupo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -259,6 +269,9 @@
             // 
             // nivel
             // 
+            this.nivel.BackColor = System.Drawing.Color.LemonChiffon;
+            this.nivel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.nivel.Enabled = false;
             this.nivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.nivel.Location = new System.Drawing.Point(153, 306);
             this.nivel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -294,6 +307,7 @@
             // 
             // desc
             // 
+            this.desc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.desc.Location = new System.Drawing.Point(153, 200);
             this.desc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -301,6 +315,7 @@
             this.desc.Size = new System.Drawing.Size(304, 30);
             this.desc.TabIndex = 4;
             this.desc.TextChanged += new System.EventHandler(this.desc_TextChanged);
+            this.desc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.desc_KeyDown);
             // 
             // label2
             // 
@@ -316,12 +331,14 @@
             // 
             // codcuenta
             // 
+            this.codcuenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codcuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.codcuenta.Location = new System.Drawing.Point(153, 145);
             this.codcuenta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.codcuenta.Name = "codcuenta";
             this.codcuenta.Size = new System.Drawing.Size(139, 30);
             this.codcuenta.TabIndex = 2;
+            this.codcuenta.TextChanged += new System.EventHandler(this.codcuenta_TextChanged);
             this.codcuenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.codcuenta_KeyDown);
             // 
             // linkLabel1

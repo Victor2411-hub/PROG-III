@@ -56,7 +56,7 @@ namespace Prueba___BETA.consulta
             if (string.IsNullOrWhiteSpace(txtbuscar.Text) || txtbuscar.Text == "")
             {
                 Conexion conexion = new Conexion();
-                string sql = "SELECT Nro_Cta AS 'Número de Cuenta', Descripcion_Cta AS Descripción, CASE WHEN Tipo_Cta = 1 THEN 'General' ELSE 'Auxiliar' END AS Tipo, Nivel_Cta AS Nivel, Cta_Padre AS 'Cuenta Padre',Fecha_creacion_Cta 'Creado'  FROM catalogoC;";
+                string sql = "SELECT ID,Nro_Cta AS 'Número de Cuenta', Descripcion_Cta AS Descripción, CASE WHEN Tipo_Cta = 1 THEN 'General' ELSE 'Auxiliar' END AS Tipo, Nivel_Cta AS Nivel, Cta_Padre AS 'Cuenta Padre',Fecha_creacion_Cta 'Creado'  FROM catalogoC ORDER BY Nro_Cta;";
                 dataGridView1.DataSource = conexion.Tabla(sql);
                 dataGridView1.Refresh();
             }
@@ -65,7 +65,8 @@ namespace Prueba___BETA.consulta
                 Conexion conexion = new Conexion();
                 string palabraClave = txtbuscar.Text.Trim(); // Limpia espacios al inicio y final
                 string sql = $@"
-        SELECT 
+        SELECT
+            ID,
             Nro_Cta AS 'Número de Cuenta', 
             Descripcion_Cta AS Descripción, 
             CASE 
@@ -78,7 +79,8 @@ namespace Prueba___BETA.consulta
         WHERE 
             Nro_Cta LIKE '%{palabraClave}%' OR
             Descripcion_Cta LIKE '%{palabraClave}%' OR
-            Cta_Padre LIKE '%{palabraClave}%';
+            Cta_Padre LIKE '%{palabraClave}%'
+            ORDER BY Nro_Cta;
     ";
                 dataGridView1.DataSource = conexion.Tabla(sql);
                 dataGridView1.Refresh();
@@ -135,6 +137,10 @@ namespace Prueba___BETA.consulta
                     MessageBox.Show("Por favor, seleccione una fila válida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
         }
 
         private void Con_catalogo_KeyDown(object sender, KeyEventArgs e)
@@ -142,6 +148,16 @@ namespace Prueba___BETA.consulta
             if(e.KeyCode == Keys.Escape) {
                 this.Close();
             }
+        }
+
+        private void buscar_Click(object sender, EventArgs e)
+        {
+            buscarCuentas();
+        }
+
+        private void cancel_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
