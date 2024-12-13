@@ -17,6 +17,11 @@ namespace Prueba___BETA.transacciones
             InitializeComponent();
         }
 
+        public string usuario;
+
+        public string ValorSeleccionado { get; private set; }
+
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -33,7 +38,19 @@ namespace Prueba___BETA.transacciones
             {
                search();
             }
-            
+            if (e.KeyCode == Keys.F5)
+            {
+                consulta.Con_catalogo consultaForm = new consulta.Con_catalogo();
+
+                if (consultaForm.ShowDialog() == DialogResult.OK)
+                {
+                    if (!string.IsNullOrEmpty(consultaForm.ValorSeleccionado))
+                    {
+                        search2(consultaForm.ValorSeleccionado);
+                    }
+                }
+            }
+
         }
 
         private void search()
@@ -51,6 +68,45 @@ namespace Prueba___BETA.transacciones
                 var parametros = new Dictionary<string, object>
         {
             { "@Nro_Cta", cta.Text }
+        };
+
+                DataRow resultado = conexion.EjecutarConsultaSimpleFila(sql, parametros);
+                conexion.Cierre();
+
+                if (resultado != null)
+                {
+
+                    if (resultado["Nivel_Cta"].ToString() == "1") {
+                        MessageBox.Show("No se puede añadir una cuenta principal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    cta.Clear();
+                    cta_nombre.Text = resultado["Descripcion_Cta"].ToString();
+                    dataGridView1.Rows.Add(resultado["Nro_Cta"], resultado["Descripcion_Cta"]);
+                    dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells[2];
+                    dataGridView1.BeginEdit(true);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró ninguna cuenta con el número especificado.", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al buscar la cuenta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void search2(string valor)
+        { 
+
+            try
+            {
+                Conexion conexion = new Conexion();
+                string sql = "SELECT * FROM catalogoC WHERE ID = @Nro_Cta";
+                var parametros = new Dictionary<string, object>
+        {
+            { "@Nro_Cta", valor}
         };
 
                 DataRow resultado = conexion.EjecutarConsultaSimpleFila(sql, parametros);
@@ -89,14 +145,14 @@ namespace Prueba___BETA.transacciones
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[2].Value != null && double.TryParse(row.Cells[2].Value.ToString(), out double credito))
-                {
-                    totalCredito += credito;
-                }
-
-                if (row.Cells[3].Value != null && double.TryParse(row.Cells[3].Value.ToString(), out double debito))
+                if (row.Cells[2].Value != null && double.TryParse(row.Cells[3].Value.ToString(), out double debito))
                 {
                     totalDebito += debito;
+                }
+
+                if (row.Cells[3].Value != null && double.TryParse(row.Cells[2].Value.ToString(), out double credito))
+                {
+                    totalCredito += credito;
                 }
             }
 
@@ -117,6 +173,7 @@ namespace Prueba___BETA.transacciones
             debito.Clear();
             total_c.Clear();
             cta.Focus();
+            comentario.Clear();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -159,7 +216,6 @@ namespace Prueba___BETA.transacciones
 
             try
             {
-                // Validar si los totales cuadran
                 double totalCredito = double.Parse(credito.Text);
                 double totalDebito = double.Parse(debito.Text);
 
@@ -182,21 +238,20 @@ namespace Prueba___BETA.transacciones
                 string nroDocGenerado = $"{anioActual}{numeroSerial:D6}";
 
                 string sqlTransaccion = @"
-    INSERT INTO Transacciones (Valor_Debito_Total, Valor_Credito_Total, Nro_Doc,Comentario)
-    VALUES (@Valor_Debito_Total, @Valor_Credito_Total, @Nro_Doc,@comentario);";
+    INSERT INTO Transacciones (Valor_Debito_Total, Valor_Credito_Total, Nro_Doc,Comentario,hechopor)
+    VALUES (@Valor_Debito_Total, @Valor_Credito_Total, @Nro_Doc,@comentario,@usuario);";
 
                 var parametrosTransaccion = new Dictionary<string, object>
         {
             { "@Valor_Debito_Total", totalDebito },
             { "@Valor_Credito_Total", totalCredito },
             { "@Nro_Doc", nroDocGenerado },
-            { "@comentario", comentario.Text }
+            { "@comentario", comentario.Text },
+                    { "@usuario", usuario }
         };
 
-                // Insertar la transacción
                 conexion.EjecutarConsultaSimpleFila(sqlTransaccion, parametrosTransaccion);
 
-                // Obtener el ID de la transacción usando el Nro_Doc recién insertado
                 string sqlTransaccionID = "SELECT ID FROM Transacciones WHERE Nro_Doc = @Nro_Doc";
                 var parametrosID = new Dictionary<string, object>
         {
@@ -208,8 +263,8 @@ namespace Prueba___BETA.transacciones
 
                 string sqlDetalle = @"
     INSERT INTO Transacciones_Detalle 
-    (Transaccion_ID, Secuencia_Doc, Cuenta_Contable, Valor_Debito, Valor_Credito)
-    VALUES (@Transaccion_ID, @Secuencia_Doc, @Cuenta_Contable, @Valor_Debito, @Valor_Credito);";
+    (Transaccion_ID, Secuencia_Doc, Cuenta_Contable, Valor_Debito, Valor_Credito,comentario)
+    VALUES (@Transaccion_ID, @Secuencia_Doc, @Cuenta_Contable, @Valor_Debito, @Valor_Credito,@comentario);";
 
                 int secuencia = 1;
 
@@ -220,6 +275,7 @@ namespace Prueba___BETA.transacciones
                     string cuentaContable = row.Cells[0].Value?.ToString();
                     double valorDebito = row.Cells[2].Value != null ? double.Parse(row.Cells[2].Value.ToString()) : 0;
                     double valorCredito = row.Cells[3].Value != null ? double.Parse(row.Cells[3].Value.ToString()) : 0;
+                    string comentario = row.Cells[4].Value?.ToString();
 
                     var parametrosDetalle = new Dictionary<string, object>
             {
@@ -227,7 +283,8 @@ namespace Prueba___BETA.transacciones
                 { "@Secuencia_Doc", secuencia++ },
                 { "@Cuenta_Contable", cuentaContable },
                 { "@Valor_Debito", valorDebito },
-                { "@Valor_Credito", valorCredito }
+                { "@Valor_Credito", valorCredito },
+                { "@comentario", comentario }
             };
 
                     conexion.EjecutarConsultaSimpleFila(sqlDetalle, parametrosDetalle);

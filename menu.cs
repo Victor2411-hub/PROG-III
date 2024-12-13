@@ -115,6 +115,7 @@ namespace Prueba___BETA
             form.BringToFront();
             form.Left = (panel1.Width - form.Width) / 2;
             form.Top = (panel1.Height - form.Height) / 2;
+            form.usuario = user;
         }
     }
 }

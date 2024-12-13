@@ -53,6 +53,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +67,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.textBox3);
             this.panel1.Controls.Add(this.cod);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.guardar);
@@ -87,7 +99,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(502, 594);
+            this.panel1.Size = new System.Drawing.Size(502, 764);
             this.panel1.TabIndex = 1;
             // 
             // cod
@@ -119,7 +131,7 @@
             // 
             this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.guardar.ForeColor = System.Drawing.Color.Black;
-            this.guardar.Location = new System.Drawing.Point(346, 534);
+            this.guardar.Location = new System.Drawing.Point(343, 700);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(121, 42);
             this.guardar.TabIndex = 24;
@@ -131,7 +143,7 @@
             // 
             this.limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.limpiar.ForeColor = System.Drawing.Color.Black;
-            this.limpiar.Location = new System.Drawing.Point(185, 534);
+            this.limpiar.Location = new System.Drawing.Point(182, 700);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(121, 42);
             this.limpiar.TabIndex = 23;
@@ -143,7 +155,7 @@
             // 
             this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cancel.ForeColor = System.Drawing.Color.Black;
-            this.cancel.Location = new System.Drawing.Point(24, 534);
+            this.cancel.Location = new System.Drawing.Point(21, 700);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(121, 42);
             this.cancel.TabIndex = 22;
@@ -390,11 +402,83 @@
             this.label1.Text = "Mantenimiento de Catálogo";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox1.Location = new System.Drawing.Point(153, 532);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(139, 30);
+            this.textBox1.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(49, 535);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(89, 25);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "Crédito:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.LemonChiffon;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox2.Location = new System.Drawing.Point(153, 640);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(139, 30);
+            this.textBox2.TabIndex = 30;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(39, 640);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 25);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "Balance:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.LemonChiffon;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox3.Location = new System.Drawing.Point(153, 585);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(139, 30);
+            this.textBox3.TabIndex = 28;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(55, 590);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(81, 25);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "Débito:";
+            // 
             // Mant_catalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 594);
+            this.ClientSize = new System.Drawing.Size(502, 764);
             this.Controls.Add(this.panel1);
             this.Name = "Mant_catalogo";
             this.Text = "Mant_catalogo";
@@ -435,5 +519,11 @@
         private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.TextBox cod;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox textBox3;
     }
 }

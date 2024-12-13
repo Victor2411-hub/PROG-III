@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Con_usuario));
             this.panel1 = new System.Windows.Forms.Panel();
             this.cancel = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -127,8 +128,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Con_usuario";
-            this.Text = "Con_usuario";
+            this.Text = "Consulta Usuarios";
             this.Load += new System.EventHandler(this.Con_usuario_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Con_usuario_KeyPress);
             this.panel1.ResumeLayout(false);

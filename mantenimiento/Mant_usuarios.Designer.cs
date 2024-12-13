@@ -35,8 +35,6 @@ namespace Prueba___BETA.mantenimiento
             this.cancel = new System.Windows.Forms.Button();
             this.tipo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.email = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.apellidos = new System.Windows.Forms.TextBox();
@@ -53,7 +51,6 @@ namespace Prueba___BETA.mantenimiento
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -66,8 +63,6 @@ namespace Prueba___BETA.mantenimiento
             this.panel1.Controls.Add(this.cancel);
             this.panel1.Controls.Add(this.tipo);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.email);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.apellidos);
@@ -85,7 +80,7 @@ namespace Prueba___BETA.mantenimiento
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(864, 507);
+            this.panel1.Size = new System.Drawing.Size(475, 541);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -93,7 +88,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             this.guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.guardar.ForeColor = System.Drawing.Color.Black;
-            this.guardar.Location = new System.Drawing.Point(649, 444);
+            this.guardar.Location = new System.Drawing.Point(343, 485);
             this.guardar.Name = "guardar";
             this.guardar.Size = new System.Drawing.Size(121, 42);
             this.guardar.TabIndex = 19;
@@ -105,7 +100,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             this.limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.limpiar.ForeColor = System.Drawing.Color.Black;
-            this.limpiar.Location = new System.Drawing.Point(382, 444);
+            this.limpiar.Location = new System.Drawing.Point(186, 485);
             this.limpiar.Name = "limpiar";
             this.limpiar.Size = new System.Drawing.Size(121, 42);
             this.limpiar.TabIndex = 18;
@@ -117,7 +112,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             this.cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cancel.ForeColor = System.Drawing.Color.Black;
-            this.cancel.Location = new System.Drawing.Point(153, 444);
+            this.cancel.Location = new System.Drawing.Point(17, 485);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(121, 42);
             this.cancel.TabIndex = 17;
@@ -132,7 +127,7 @@ namespace Prueba___BETA.mantenimiento
             this.tipo.Items.AddRange(new object[] {
             "Administrador",
             "Empleado"});
-            this.tipo.Location = new System.Drawing.Point(601, 362);
+            this.tipo.Location = new System.Drawing.Point(153, 418);
             this.tipo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tipo.Name = "tipo";
             this.tipo.Size = new System.Drawing.Size(176, 33);
@@ -143,33 +138,11 @@ namespace Prueba___BETA.mantenimiento
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(533, 366);
+            this.label7.Location = new System.Drawing.Point(74, 421);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 25);
             this.label7.TabIndex = 15;
             this.label7.Text = "Tipo:";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(601, 290);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 32);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Actualizar Foto";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBox2.Location = new System.Drawing.Point(601, 91);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(169, 194);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
             // 
             // email
             // 
@@ -300,7 +273,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.linkLabel1.Location = new System.Drawing.Point(60, 95);
+            this.linkLabel1.Location = new System.Drawing.Point(55, 96);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(81, 25);
             this.linkLabel1.TabIndex = 1;
@@ -350,7 +323,7 @@ namespace Prueba___BETA.mantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 507);
+            this.ClientSize = new System.Drawing.Size(475, 541);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Mant_usuarios";
@@ -359,7 +332,6 @@ namespace Prueba___BETA.mantenimiento
             this.Load += new System.EventHandler(this.Mantusuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -386,8 +358,6 @@ namespace Prueba___BETA.mantenimiento
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox tipo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button guardar;
         private System.Windows.Forms.Button limpiar;
         private System.Windows.Forms.Button cancel;
