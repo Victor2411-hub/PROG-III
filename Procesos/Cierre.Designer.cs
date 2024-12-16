@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.recalcular = new System.Windows.Forms.Button();
             this.hasta = new System.Windows.Forms.DateTimePicker();
             this.desde = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,7 +37,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.recalcular = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,10 +53,23 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(677, 372);
+            this.panel1.Size = new System.Drawing.Size(508, 302);
             this.panel1.TabIndex = 1;
+            // 
+            // recalcular
+            // 
+            this.recalcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.recalcular.ForeColor = System.Drawing.Color.Black;
+            this.recalcular.Location = new System.Drawing.Point(214, 238);
+            this.recalcular.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.recalcular.Name = "recalcular";
+            this.recalcular.Size = new System.Drawing.Size(109, 34);
+            this.recalcular.TabIndex = 20;
+            this.recalcular.Text = "Recalcular";
+            this.recalcular.UseVisualStyleBackColor = true;
+            this.recalcular.Click += new System.EventHandler(this.recalcular_Click);
             // 
             // hasta
             // 
@@ -65,9 +78,10 @@
             this.hasta.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.hasta.CustomFormat = "dd/MM/yyy";
             this.hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.hasta.Location = new System.Drawing.Point(219, 202);
+            this.hasta.Location = new System.Drawing.Point(164, 164);
+            this.hasta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.hasta.Name = "hasta";
-            this.hasta.Size = new System.Drawing.Size(349, 34);
+            this.hasta.Size = new System.Drawing.Size(263, 29);
             this.hasta.TabIndex = 12;
             // 
             // desde
@@ -77,9 +91,10 @@
             this.desde.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.desde.CustomFormat = "";
             this.desde.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.desde.Location = new System.Drawing.Point(219, 142);
+            this.desde.Location = new System.Drawing.Point(164, 115);
+            this.desde.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.desde.Name = "desde";
-            this.desde.Size = new System.Drawing.Size(348, 34);
+            this.desde.Size = new System.Drawing.Size(262, 28);
             this.desde.TabIndex = 11;
             // 
             // label3
@@ -89,9 +104,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(116, 202);
+            this.label3.Location = new System.Drawing.Point(87, 164);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 29);
+            this.label3.Size = new System.Drawing.Size(68, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "Hasta:";
             // 
@@ -102,9 +118,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(106, 147);
+            this.label2.Location = new System.Drawing.Point(80, 119);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 29);
+            this.label2.Size = new System.Drawing.Size(76, 24);
             this.label2.TabIndex = 9;
             this.label2.Text = "Desde:";
             // 
@@ -113,21 +130,21 @@
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, -12);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(0, -9);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(684, 84);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(513, 67);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Prueba___BETA.Properties.Resources.Blue_Modern_Financial_Services_Logo_1;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 21);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(9, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 57);
+            this.pictureBox1.Size = new System.Drawing.Size(46, 46);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -138,30 +155,20 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(79, 33);
+            this.label1.Location = new System.Drawing.Point(59, 27);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 32);
+            this.label1.Size = new System.Drawing.Size(226, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cierre de año Fiscal";
             // 
-            // recalcular
-            // 
-            this.recalcular.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.recalcular.ForeColor = System.Drawing.Color.Black;
-            this.recalcular.Location = new System.Drawing.Point(286, 293);
-            this.recalcular.Name = "recalcular";
-            this.recalcular.Size = new System.Drawing.Size(145, 42);
-            this.recalcular.TabIndex = 20;
-            this.recalcular.Text = "Recalcular";
-            this.recalcular.UseVisualStyleBackColor = true;
-            this.recalcular.Click += new System.EventHandler(this.recalcular_Click);
-            // 
             // Cierre
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(677, 372);
+            this.ClientSize = new System.Drawing.Size(508, 302);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Cierre";
             this.Text = "Cierre";
             this.Load += new System.EventHandler(this.Cierre_Load);
