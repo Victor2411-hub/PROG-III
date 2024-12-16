@@ -48,7 +48,6 @@ namespace Prueba___BETA
             this.transaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDiarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.catálogoDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -194,6 +193,7 @@ namespace Prueba___BETA
             this.entradaDeDiarioToolStripMenuItem.Name = "entradaDeDiarioToolStripMenuItem";
             this.entradaDeDiarioToolStripMenuItem.Size = new System.Drawing.Size(254, 28);
             this.entradaDeDiarioToolStripMenuItem.Text = "Entrada de Diario";
+            this.entradaDeDiarioToolStripMenuItem.Click += new System.EventHandler(this.entradaDeDiarioToolStripMenuItem_Click);
             // 
             // procesosToolStripMenuItem
             // 
@@ -216,8 +216,7 @@ namespace Prueba___BETA
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cierreDiarioToolStripMenuItem,
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem});
+            this.cierreDiarioToolStripMenuItem});
             this.consultasToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(109, 32);
@@ -228,16 +227,9 @@ namespace Prueba___BETA
             // 
             this.cierreDiarioToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.cierreDiarioToolStripMenuItem.Name = "cierreDiarioToolStripMenuItem";
-            this.cierreDiarioToolStripMenuItem.Size = new System.Drawing.Size(303, 28);
+            this.cierreDiarioToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.cierreDiarioToolStripMenuItem.Text = "Cierre Diario";
-            // 
-            // bCierreDeFinDeAñoFiscaToolStripMenuItem
-            // 
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem.Name = "bCierreDeFinDeAñoFiscaToolStripMenuItem";
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem.Size = new System.Drawing.Size(303, 28);
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem.Text = "Cierre de Fin de Año Fisca";
-            this.bCierreDeFinDeAñoFiscaToolStripMenuItem.Click += new System.EventHandler(this.bCierreDeFinDeAñoFiscaToolStripMenuItem_Click);
+            this.cierreDiarioToolStripMenuItem.Click += new System.EventHandler(this.cierreDiarioToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -267,6 +259,7 @@ namespace Prueba___BETA
             this.transaccionesToolStripMenuItem1.Name = "transaccionesToolStripMenuItem1";
             this.transaccionesToolStripMenuItem1.Size = new System.Drawing.Size(305, 28);
             this.transaccionesToolStripMenuItem1.Text = "Transacciones";
+            this.transaccionesToolStripMenuItem1.Click += new System.EventHandler(this.transaccionesToolStripMenuItem1_Click);
             // 
             // balanzaGeneralToolStripMenuItem
             // 
@@ -351,7 +344,6 @@ namespace Prueba___BETA
         private ToolStripMenuItem entradaDeDiarioToolStripMenuItem;
         private ToolStripMenuItem transaccionesToolStripMenuItem;
         private ToolStripMenuItem cierreDiarioToolStripMenuItem;
-        private ToolStripMenuItem bCierreDeFinDeAñoFiscaToolStripMenuItem;
         private ToolStripMenuItem catálogoDeCuentasToolStripMenuItem;
         private ToolStripMenuItem transaccionesToolStripMenuItem1;
         private ToolStripMenuItem balanzaGeneralToolStripMenuItem;

@@ -65,7 +65,7 @@ namespace Prueba___BETA.consulta
             else
             {
                 Conexion conexion = new Conexion();
-                string palabraClave = txtbuscar.Text.Trim(); // Limpia espacios al inicio y final
+                string palabraClave = txtbuscar.Text.Trim();
                 string sql = $@"
         SELECT 
             cod_user AS Código, 

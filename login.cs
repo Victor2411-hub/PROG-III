@@ -71,5 +71,21 @@ namespace Prueba___BETA
                 txtPass.UseSystemPasswordChar = true;
             }
         }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtPass.Focus();
+            }
+        }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ingresar_Click(sender, e);
+            }
+        }
     }
 }

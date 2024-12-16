@@ -117,5 +117,38 @@ namespace Prueba___BETA
             form.Top = (panel1.Height - form.Height) / 2;
             form.usuario = user;
         }
+
+        private void transaccionesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            consulta.Con_Transacciones form = new consulta.Con_Transacciones();
+            form.TopLevel = false;
+            panel1.Controls.Add(form);
+            form.Show();
+            form.BringToFront();
+            form.Left = (panel1.Width - form.Width) / 2;
+            form.Top = (panel1.Height - form.Height) / 2;
+        }
+
+        private void entradaDeDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mantenimiento.Mant_tipo form = new mantenimiento.Mant_tipo();
+            form.TopLevel = false;
+            panel1.Controls.Add(form);
+            form.Show();
+            form.BringToFront();
+            form.Left = (panel1.Width - form.Width) / 2;
+            form.Top = (panel1.Height - form.Height) / 2;
+        }
+
+        private void cierreDiarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Procesos.Cierre form = new Procesos.Cierre();
+            form.TopLevel = false;
+            panel1.Controls.Add(form);
+            form.Show();
+            form.BringToFront();
+            form.Left = (panel1.Width - form.Width) / 2;
+            form.Top = (panel1.Height - form.Height) / 2;
+        }
     }
 }

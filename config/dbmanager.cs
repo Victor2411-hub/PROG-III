@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 public class Conexion
 {
@@ -74,6 +75,76 @@ public class Conexion
         str = str.Trim();
         return System.Security.SecurityElement.Escape(str);
     }
+
+    public DataTable TablaP(string sql, Dictionary<string, object> parametros)
+    {
+        try
+        {
+            using (SqlCommand cmd = new SqlCommand(sql, conexion))
+            {
+                foreach (var parametro in parametros)
+                {
+                    cmd.Parameters.AddWithValue(parametro.Key, parametro.Value);
+                }
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                return dt;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error al ejecutar la consulta parametrizada: " + ex.Message);
+            return null;
+        }
+    }
+
+    public void EjecutarP(string sql, Dictionary<string, object> parametros)
+    {
+        try
+        {
+            if (conexion.State != System.Data.ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+
+            using (SqlCommand cmd = new SqlCommand(sql, conexion))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // Agregar parámetros correctamente
+                foreach (var parametro in parametros)
+                {
+                    cmd.Parameters.Add(new SqlParameter(parametro.Key, parametro.Value ?? DBNull.Value));
+                }
+
+                // Ejecutar el comando
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Procedimiento ejecutado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        catch (SqlException ex)
+        {
+            MessageBox.Show($"Error de SQL: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error general: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            if (conexion.State == System.Data.ConnectionState.Open)
+            {
+                conexion.Close();
+            }
+        }
+    }
+
+
+
+
 
     public DataTable Tabla(string sql)
     {

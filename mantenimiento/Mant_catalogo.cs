@@ -18,6 +18,8 @@ namespace Prueba___BETA.mantenimiento
         public Mant_catalogo()
         {
             InitializeComponent();
+            fecha.Format = DateTimePickerFormat.Custom;
+            fecha.CustomFormat = "MM/dd/yyyy";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -124,6 +126,9 @@ namespace Prueba___BETA.mantenimiento
                     cuentac.Text = resultado["Cta_Padre"].ToString();
                     nombrec.Text = obtenerNombreCuentaPrincipal(resultado["Cta_Padre"].ToString());
                     fecha.Value = DateTime.Parse(resultado["Fecha_Creacion_Cta"].ToString());
+                    credito.Text = resultado["Credito_Acum_Cta"].ToString();
+                    debito.Text = resultado["Debito_Acum_Cta"].ToString();
+                    balance.Text = resultado["Balance_Cta"].ToString();
                 }
                 else
                 {
@@ -196,6 +201,9 @@ namespace Prueba___BETA.mantenimiento
                 Grupo.Text = obtenerNombreCuentaPrincipal(resultado["Cta_Padre"].ToString());
                 cuentac.Text = resultado["Cta_Padre"].ToString();
                 nombrec.Text = obtenerNombreCuentaPrincipal(resultado["Cta_Padre"].ToString());
+                credito.Text = resultado["Credito_Acum_Cta"].ToString();
+                debito.Text = resultado["Debito_Acum_Cta"].ToString();
+                balance.Text = resultado["Balance_Cta"].ToString();
             }
 
         }

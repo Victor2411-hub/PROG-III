@@ -47,6 +47,7 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(263, 42);
             this.txtUser.TabIndex = 2;
+            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // txtPass
             // 
@@ -57,6 +58,7 @@
             this.txtPass.Size = new System.Drawing.Size(263, 42);
             this.txtPass.TabIndex = 3;
             this.txtPass.UseSystemPasswordChar = true;
+            this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyDown);
             // 
             // ingresar
             // 

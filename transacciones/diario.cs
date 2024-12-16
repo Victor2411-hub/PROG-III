@@ -15,6 +15,20 @@ namespace Prueba___BETA.transacciones
         public diario()
         {
             InitializeComponent();
+            Conexion conexion = new Conexion();
+            string sql = "SELECT descripcion FROM tipo";
+            DataRow resultado = conexion.EjecutarConsulta(sql);
+
+            if (resultado != null && resultado[0] != DBNull.Value)
+            {
+                comboBox1.Items.Clear(); 
+                string[] descripciones = resultado[0].ToString().Split(',');
+
+                foreach (string descripcion in descripciones)
+                {
+                    comboBox1.Items.Add(descripcion.Trim());
+                }
+            }
         }
 
         public string usuario;
@@ -145,12 +159,12 @@ namespace Prueba___BETA.transacciones
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells[2].Value != null && double.TryParse(row.Cells[3].Value.ToString(), out double debito))
+                if (row.Cells[2].Value != null && double.TryParse(row.Cells[2].Value.ToString(), out double debito))
                 {
                     totalDebito += debito;
                 }
 
-                if (row.Cells[3].Value != null && double.TryParse(row.Cells[2].Value.ToString(), out double credito))
+                if (row.Cells[3].Value != null && double.TryParse(row.Cells[3].Value.ToString(), out double credito))
                 {
                     totalCredito += credito;
                 }
@@ -174,6 +188,7 @@ namespace Prueba___BETA.transacciones
             total_c.Clear();
             cta.Focus();
             comentario.Clear();
+            comboBox1.SelectedIndex = -1;
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -214,8 +229,16 @@ namespace Prueba___BETA.transacciones
                 return;
             }
 
+            //si el valor de combo box es nulo o esta en blanco
+            if (string.IsNullOrWhiteSpace(comboBox1.Text))
+            {
+                MessageBox.Show("Por favor, seleccione un tipo de transacción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
+                Conexion conexion = new Conexion();
                 double totalCredito = double.Parse(credito.Text);
                 double totalDebito = double.Parse(debito.Text);
 
@@ -225,7 +248,20 @@ namespace Prueba___BETA.transacciones
                     return;
                 }
 
-                Conexion conexion = new Conexion();
+                string tipoid = @"SELECT ID FROM tipo WHERE CAST(descripcion AS NVARCHAR(MAX)) = @tipoid";
+
+                var parametrosTipo = new Dictionary<string, object>
+
+                {
+                    {"@tipoid", comboBox1.Text.ToString() } 
+                };
+
+                DataRow id = conexion.EjecutarConsultaSimpleFila(tipoid, parametrosTipo);
+
+                string tipo = id["ID"].ToString();
+
+                
+
                 string anioActual = DateTime.Now.Year.ToString();
                 string sqlUltimoDoc = $"SELECT MAX(Nro_Doc) AS UltimoDoc FROM Transacciones WHERE Nro_Doc LIKE '{anioActual}%'";
 
@@ -238,8 +274,8 @@ namespace Prueba___BETA.transacciones
                 string nroDocGenerado = $"{anioActual}{numeroSerial:D6}";
 
                 string sqlTransaccion = @"
-    INSERT INTO Transacciones (Valor_Debito_Total, Valor_Credito_Total, Nro_Doc,Comentario,hechopor)
-    VALUES (@Valor_Debito_Total, @Valor_Credito_Total, @Nro_Doc,@comentario,@usuario);";
+    INSERT INTO Transacciones (Valor_Debito_Total, Valor_Credito_Total, Nro_Doc,Comentario,hechopor,id_tipo)
+    VALUES (@Valor_Debito_Total, @Valor_Credito_Total, @Nro_Doc,@comentario,@usuario,@tipo);";
 
                 var parametrosTransaccion = new Dictionary<string, object>
         {
@@ -247,7 +283,8 @@ namespace Prueba___BETA.transacciones
             { "@Valor_Credito_Total", totalCredito },
             { "@Nro_Doc", nroDocGenerado },
             { "@comentario", comentario.Text },
-                    { "@usuario", usuario }
+            { "@usuario", usuario },
+             {"@tipo", tipo }
         };
 
                 conexion.EjecutarConsultaSimpleFila(sqlTransaccion, parametrosTransaccion);
@@ -263,7 +300,7 @@ namespace Prueba___BETA.transacciones
 
                 string sqlDetalle = @"
     INSERT INTO Transacciones_Detalle 
-    (Transaccion_ID, Secuencia_Doc, Cuenta_Contable, Valor_Debito, Valor_Credito,comentario)
+    (Transaccion_ID, Secuencia_Doc, Cuenta_Contable, Valor_Debito, Valor_Credito,Comentario)
     VALUES (@Transaccion_ID, @Secuencia_Doc, @Cuenta_Contable, @Valor_Debito, @Valor_Credito,@comentario);";
 
                 int secuencia = 1;
@@ -292,11 +329,9 @@ namespace Prueba___BETA.transacciones
 
                 conexion.Cierre();
 
-                // Confirmación al usuario
                 MessageBox.Show($"Transacción guardada exitosamente con el número de documento: {nroDocGenerado}.",
                     "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Limpiar el formulario
                 limpiar_Click(null, null);
             }
             catch (Exception ex)
@@ -320,6 +355,11 @@ namespace Prueba___BETA.transacciones
                     dataGridView1.Rows.Remove(dataGridView1.SelectedRows[0]);
                 }
             }
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
