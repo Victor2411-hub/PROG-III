@@ -11,6 +11,7 @@ public class Conexion
     public Conexion()
     {
         string connectionString = @"Data Source=VICTOR\SQLEXPRESS;Initial Catalog=modelo;Integrated Security=True;";
+        
 
         conexion = new SqlConnection(connectionString);
         try

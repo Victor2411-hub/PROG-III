@@ -52,9 +52,6 @@ namespace Prueba___BETA
             this.catálogoDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.balanzaGeneralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.balanzaDeComprobaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resumenDeGastosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estadoDeCuentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -74,7 +71,7 @@ namespace Prueba___BETA
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.White;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(883, 547);
             this.panel1.TabIndex = 0;
@@ -84,7 +81,7 @@ namespace Prueba___BETA
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::Prueba___BETA.Properties.Resources.grande_espacio;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(883, 520);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -99,7 +96,7 @@ namespace Prueba___BETA
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 520);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(883, 27);
             this.panel2.TabIndex = 1;
@@ -108,7 +105,7 @@ namespace Prueba___BETA
             // 
             this.pictureBox1.Image = global::Prueba___BETA.Properties.Resources.icons8_user_96__2_;
             this.pictureBox1.Location = new System.Drawing.Point(19, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(22, 24);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -122,7 +119,7 @@ namespace Prueba___BETA
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(832, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.label2.Margin = new System.Windows.Forms.Padding(2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 1;
@@ -241,20 +238,18 @@ namespace Prueba___BETA
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.catálogoDeCuentasToolStripMenuItem,
             this.transaccionesToolStripMenuItem1,
-            this.balanzaGeneralToolStripMenuItem,
-            this.balanzaDeComprobaciónToolStripMenuItem,
-            this.resumenDeGastosToolStripMenuItem,
-            this.estadoDeCuentasToolStripMenuItem});
+            this.balanzaGeneralToolStripMenuItem});
             this.ayudaToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(96, 25);
             this.ayudaToolStripMenuItem.Text = "Consultas";
+            this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
             // 
             // catálogoDeCuentasToolStripMenuItem
             // 
             this.catálogoDeCuentasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.catálogoDeCuentasToolStripMenuItem.Name = "catálogoDeCuentasToolStripMenuItem";
-            this.catálogoDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.catálogoDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.catálogoDeCuentasToolStripMenuItem.Text = "Catálogo de Cuentas";
             this.catálogoDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.catálogoDeCuentasToolStripMenuItem_Click);
             // 
@@ -262,7 +257,7 @@ namespace Prueba___BETA
             // 
             this.transaccionesToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.transaccionesToolStripMenuItem1.Name = "transaccionesToolStripMenuItem1";
-            this.transaccionesToolStripMenuItem1.Size = new System.Drawing.Size(256, 24);
+            this.transaccionesToolStripMenuItem1.Size = new System.Drawing.Size(217, 24);
             this.transaccionesToolStripMenuItem1.Text = "Transacciones";
             this.transaccionesToolStripMenuItem1.Click += new System.EventHandler(this.transaccionesToolStripMenuItem1_Click);
             // 
@@ -270,37 +265,16 @@ namespace Prueba___BETA
             // 
             this.balanzaGeneralToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.balanzaGeneralToolStripMenuItem.Name = "balanzaGeneralToolStripMenuItem";
-            this.balanzaGeneralToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
+            this.balanzaGeneralToolStripMenuItem.Size = new System.Drawing.Size(217, 24);
             this.balanzaGeneralToolStripMenuItem.Text = "Balanza General";
-            // 
-            // balanzaDeComprobaciónToolStripMenuItem
-            // 
-            this.balanzaDeComprobaciónToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.balanzaDeComprobaciónToolStripMenuItem.Name = "balanzaDeComprobaciónToolStripMenuItem";
-            this.balanzaDeComprobaciónToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.balanzaDeComprobaciónToolStripMenuItem.Text = "Balanza de Comprobación";
-            // 
-            // resumenDeGastosToolStripMenuItem
-            // 
-            this.resumenDeGastosToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.resumenDeGastosToolStripMenuItem.Name = "resumenDeGastosToolStripMenuItem";
-            this.resumenDeGastosToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.resumenDeGastosToolStripMenuItem.Text = "Resumen de Gastos";
-            // 
-            // estadoDeCuentasToolStripMenuItem
-            // 
-            this.estadoDeCuentasToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.estadoDeCuentasToolStripMenuItem.Name = "estadoDeCuentasToolStripMenuItem";
-            this.estadoDeCuentasToolStripMenuItem.Size = new System.Drawing.Size(256, 24);
-            this.estadoDeCuentasToolStripMenuItem.Text = "Estado de Cuenta";
-            this.estadoDeCuentasToolStripMenuItem.Click += new System.EventHandler(this.estadoDeCuentasToolStripMenuItem_Click);
+            this.balanzaGeneralToolStripMenuItem.Click += new System.EventHandler(this.balanzaGeneralToolStripMenuItem_Click);
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.menuPrinc);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(883, 42);
             this.panel3.TabIndex = 1;
@@ -314,7 +288,7 @@ namespace Prueba___BETA
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "menu";
             this.Text = "CONTALEON";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -354,9 +328,6 @@ namespace Prueba___BETA
         private ToolStripMenuItem catálogoDeCuentasToolStripMenuItem;
         private ToolStripMenuItem transaccionesToolStripMenuItem1;
         private ToolStripMenuItem balanzaGeneralToolStripMenuItem;
-        private ToolStripMenuItem balanzaDeComprobaciónToolStripMenuItem;
-        private ToolStripMenuItem resumenDeGastosToolStripMenuItem;
-        private ToolStripMenuItem estadoDeCuentasToolStripMenuItem;
         private Panel panel3;
         private PictureBox pictureBox2;
     }
